@@ -1,0 +1,20 @@
+
+section {
+    width: 1200px;
+    background-color: green;
+    margin: auto;
+}
+
+#etch_a_sketch{
+    margin: auto;
+    background-color: yellow;
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.each_square{
+    
+}
+
