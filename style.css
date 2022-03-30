@@ -1,13 +1,16 @@
 
 section {
-    width: 1200px;
-    background-color: green;
+    max-width: 1200px;
     margin: auto;
+    text-align: center;
+}
+
+button{
+    margin: 30px;
 }
 
 #etch_a_sketch{
     margin: auto;
-    background-color: yellow;
     width: 800px;
     height: 800px;
     display: flex;
@@ -15,6 +18,6 @@ section {
 }
 
 .each_square{
-    
+
 }
 
