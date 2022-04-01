@@ -1,4 +1,8 @@
 
+body{
+    background-color: grey;
+}
+
 section {
     max-width: 1200px;
     margin: auto;
@@ -11,10 +15,11 @@ button{
 
 #etch_a_sketch{
     margin: auto;
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-wrap: wrap;
+    background-color:red;
 }
 
 .each_square{
