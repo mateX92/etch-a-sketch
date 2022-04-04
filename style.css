@@ -1,6 +1,7 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
 body{
-    background-color: grey;
 }
 
 section {
@@ -13,13 +14,95 @@ button{
     margin: 30px;
 }
 
+#main_div{
+    display: flex;
+    max-width: 600px;
+    margin: auto;
+    justify-content: space-around;
+}
+
+img{
+    max-width: 250px;
+}
+
+#main_button_logo{
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+#functions{
+    margin-right: 5%;
+    margin-bottom: 10px;
+}
+
+#generate_btn{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 10px;
+    transition: 0.3s;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+#generate_btn:hover{
+    color: salmon;
+}
+
+.squares_fill{
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#gray_squares{
+    background-color: gray;
+    transition: 0.3s;
+}
+
+#gray_squares:hover{
+    background-color: rgb(63, 63, 63);
+}
+
+#color_squares{
+    background-color: #98FA46;
+    transition: 0.3s;
+}
+
+#color_squares:hover{
+    background-color: rgb(92, 152, 175);
+}
+
+
+h1, h2{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+h2{
+    padding-bottom: 10px;
+    font-size: 0.8em;
+}
+
 #etch_a_sketch{
     margin: auto;
     width: 600px;
     height: 600px;
     display: flex;
     flex-wrap: wrap;
-    background-color:red;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
 }
 
 .each_square{
