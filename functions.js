@@ -11,6 +11,12 @@ const density = document.querySelector('h1');
 
 const textColor = document.querySelector('h2');
 
+const colorChoice = document.querySelectorAll('.squares_fill'); // Selects the choice of Color
+colorChoice.forEach((color) => {
+    color.style.backgroundColor = "gray";
+}) 
+
+
 function calculateSquares() {
         squareWidth = prompt('Insert a number between 2 and a 100!', 2); // decides how many grinds there will be from 2 to 100
         if (squareWidth > 100) {
@@ -149,11 +155,26 @@ function restartGame() {
                     square.parentNode.removeChild(square);
                 });
                 squaresGenerated = "false";
+                density.textContent = "Click 'Generate'!";
+                textColor.textContent = "";
+
+                colorChoice.forEach((color) => {
+                    color.style.opacity = "30%";
+                    color.style.cursor = "";
+                    color.style.backgroundColor = "gray";
+                }) 
+
             } else if  (squaresGenerated === "false") {
                 squaresGenerated = "true"; 
                 calculateSquares();
                 placeSquares();
                 textColor.textContent = 'Choose Color!';
+
+                colorChoice.forEach((color) => {
+                    color.style.opacity = "100%";
+                    color.style.cursor = "pointer";
+                    color.style.backgroundColor = "";
+                }) 
             }
         })    
     
