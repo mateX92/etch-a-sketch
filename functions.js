@@ -2,17 +2,16 @@ let squareWidth;
 let squareAmount;
 let drawing = false;
 let squaresGenerated = "false"; // checks if canvas is empty
-
-const canvas = document.querySelector('#etch_a_sketch'); 
 let square; // each empty square created when a number is provided
-const reset = document.querySelector('button'); // the button
+
+const canvas = document.querySelector('#etch_a_sketch'); // the Canvas
+const reset = document.querySelector('button'); // the Generate/Clear button
 
 const density = document.querySelector('h1');
-
 const textColor = document.querySelector('h2');
 
 const colorChoice = document.querySelectorAll('.squares_fill'); // Selects the choice of Color
-colorChoice.forEach((color) => {
+colorChoice.forEach((color) => { // sets it to gray for now, later it will be as per CSS (once squares generate);
     color.style.backgroundColor = "gray";
 }) 
 
@@ -48,16 +47,14 @@ function placeSquares() {
     }
 
     const colorButton = document.querySelector('#color_squares');
-    colorButton.addEventListener('click', function() {
+    colorButton.addEventListener('click', function() { // adds a text which version of Colors you chose
         drawColorSquares();
-
         textColor.textContent = "Draw in Color!";
     })
 
     const grayButton = document.querySelector('#gray_squares');
     grayButton.addEventListener('click', function() {
         drawSquares();
-
         textColor.textContent = "Draw in Gray!";
     })
     
@@ -69,6 +66,7 @@ function drawSquares() { // only draws after click, doesn't stop (yet)
 
     squares.forEach((square) => {
         square.addEventListener('mousedown', function handleMouseDown() {
+
                 drawing = true;
                 square.style.backgroundColor = 'grey';
 
@@ -84,6 +82,23 @@ function drawSquares() { // only draws after click, doesn't stop (yet)
                         });
                     });
                 }); // cloused forEach in the if clause
+
+                // for the TOUCH
+
+                squares.forEach((square) => {
+                    square.addEventListener('touchmove', function handleTouchMove() {
+                        if (drawing === true) {
+                            square.style.backgroundColor = 'grey';
+                        };
+
+                        document.addEventListener('touchend', () => {
+                            drawing = false;
+                            square.removeEventListener('touchmove', handleTouchMove);
+                        })
+                    })
+                })
+
+                // TOUCH END
 
                 document.addEventListener('mouseup', () => {
                     drawing = false;
@@ -134,6 +149,24 @@ function drawColorSquares() {
                                     });
                             });
                     });
+
+                    // FOR THE TOUCH
+
+                    colorSquares.forEach((square) => {
+                        square.addEventListener('touchmove', function handleTouchMoveColor() {
+                            if (drawing === true) {
+                                    RGBColor1 = Math.floor(Math.random() * 255) + 1;
+                                    RGBColor2 = Math.floor(Math.random() * 255) + 1;
+                                    RGBColor3 = Math.floor(Math.random() * 255) + 1;
+
+                                    for (let i = 0; i < 50; i++) {
+                                        square.style.backgroundColor = `rgb(${RGBColor1}, ${RGBColor2}, ${RGBColor3})`;
+                                    };
+                            }
+                        })
+                    })
+
+                    // TOUCH END
 
                 document.addEventListener('mouseup', () => {
                     drawing = false;
