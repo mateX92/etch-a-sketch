@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
 
 body{
+    margin: 0;
 }
 
 section {
@@ -10,9 +11,6 @@ section {
     text-align: center;
 }
 
-button{
-    margin: 30px;
-}
 
 #main_div{
     display: flex;
@@ -31,9 +29,15 @@ img{
     align-items: center;
 }
 
+/* ALL THE FUNCTIONS AND BUTTONS */
+
 #functions{
     margin-right: 5%;
     margin-bottom: 10px;
+}
+
+button{
+    margin: 30px;
 }
 
 #generate_btn{
@@ -103,6 +107,8 @@ h2{
     margin-top: 15px;
 }
 
+/* THE CANVAS */
+
 #etch_a_sketch{
     margin: auto;
     width: 600px;
@@ -112,7 +118,23 @@ h2{
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
 }
 
-.each_square{
+@media only screen and (max-device-width: 650px) and (max-device-height: 1000px) {
+
+    #main_div{
+        flex-direction: column;
+    }
+
+    #main_logo{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: auto;
+    }
+
+    #etch_a_sketch{
+        width: 300px;
+        height: 300px;
+    }
+
 
 }
 

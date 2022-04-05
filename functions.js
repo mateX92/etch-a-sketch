@@ -1,20 +1,20 @@
-let squareWidth; 
-let squareAmount;
+
 let drawing = false;
-let squaresGenerated = "false"; // checks if canvas is empty
+
 let square; // each empty square created when a number is provided
 
-const canvas = document.querySelector('#etch_a_sketch'); // the Canvas
 const reset = document.querySelector('button'); // the Generate/Clear button
 
-const density = document.querySelector('h1');
-const textColor = document.querySelector('h2');
+const density = document.querySelector('h1'); // main text that provides info on density
+const textColor = document.querySelector('h2'); // text regarding Color, appears after grid generates
 
-const colorChoice = document.querySelectorAll('.squares_fill'); // Selects the choice of Color
+const colorChoice = document.querySelectorAll('.squares_fill'); // Color choice
 colorChoice.forEach((color) => { // sets it to gray for now, later it will be as per CSS (once squares generate);
     color.style.backgroundColor = "gray";
 }) 
 
+let squareWidth; // size of each square
+let squareAmount; // total amount of squares generated on Canvas
 
 function calculateSquares() {
         squareWidth = prompt('Insert a number between 2 and a 100!', 2); // decides how many grinds there will be from 2 to 100
@@ -31,9 +31,14 @@ function calculateSquares() {
         density.textContent = `Density: ${squareWidth} x ${squareWidth}`;
 }
 
+
+const canvas = document.querySelector('#etch_a_sketch'); // the Canvas
+let canvasSize = canvas.offsetWidth;
+console.log(canvasSize);
+
 function placeSquares() {
 
-    x = (600 / squareWidth) + `px`; // Adjusts the width of each square to the main div
+    x = (canvasSize / squareWidth) + `px`; // Adjusts the width of each square to the main div
     y = x; // Adjusts the height of each square to the main div
     
 
@@ -177,6 +182,7 @@ function drawColorSquares() {
         });
 }
 
+let squaresGenerated = "false"; // checks if canvas is empty
 
 function restartGame() { 
 
