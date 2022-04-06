@@ -34,7 +34,6 @@ function calculateSquares() {
 
 const canvas = document.querySelector('#etch_a_sketch'); // the Canvas
 let canvasSize = canvas.offsetWidth;
-console.log(canvasSize);
 
 function placeSquares() {
 
@@ -50,8 +49,6 @@ function placeSquares() {
         square.style.height = y;
         canvas.appendChild(square);
     }
-
-    colorPink(); // TEST
 
     // DRAWING COLOR SQUARES IF THE PROPER BUTTON IS CLICKED
 
@@ -93,23 +90,6 @@ function drawSquares() { // only draws after click, doesn't stop (yet)
                         });
                     });
                 }); // cloused forEach in the if clause
-
-                // for the TOUCH
-
-                squares.forEach((square) => {
-                    square.addEventListener('touchmove', function handleTouchMove() {
-                        if (drawing === true) {
-                            square.style.backgroundColor = 'grey';
-                        };
-
-                        document.addEventListener('touchend', () => {
-                            drawing = false;
-                            square.removeEventListener('touchmove', handleTouchMove);
-                        })
-                    })
-                })
-
-                // TOUCH END
 
                 document.addEventListener('mouseup', () => {
                     drawing = false;
@@ -161,24 +141,6 @@ function drawColorSquares() {
                             });
                     });
 
-                    // FOR THE TOUCH
-
-                    colorSquares.forEach((square) => {
-                        square.addEventListener('touchmove', function handleTouchMoveColor() {
-                            if (drawing === true) {
-                                    RGBColor1 = Math.floor(Math.random() * 255) + 1;
-                                    RGBColor2 = Math.floor(Math.random() * 255) + 1;
-                                    RGBColor3 = Math.floor(Math.random() * 255) + 1;
-
-                                    for (let i = 0; i < 50; i++) {
-                                        square.style.backgroundColor = `rgb(${RGBColor1}, ${RGBColor2}, ${RGBColor3})`;
-                                    };
-                            }
-                        })
-                    })
-
-                    // TOUCH END
-
                 document.addEventListener('mouseup', () => {
                     drawing = false;
                     square.removeEventListener('mousedown', handleMouseDownColor);
@@ -229,31 +191,30 @@ restartGame();
 
 // to test if touch would work
 
-function colorPink() {
-
-    const squaresTouched = document.querySelectorAll('.each_square'); 
-
-    squaresTouched.forEach((square) => {
-        square.addEventListener('touchstart', function handleTouchStart() {
-            square.style.backgroundColor = 'pink';
-            console.log("pink");
-
-            squaresTouched.forEach((square) => {
-                square.addEventListener('touchmove', function handleTouchMove() {
-                    console.log("pink, move!");
-                    square.style.backgroundColor = 'red';
-            
-                    document.addEventListener('touchend', () => {
-                        square.removeEventListener('touchmove', handleTouchMove);
-                    })
-                })
-            })
-            
-        })
-    })
-
-}
 
 
+//function colorPink() {
+
+ //   const squaresTouched = document.querySelectorAll('.each_square'); 
+
+ //   squaresTouched.forEach((square) => {
+ //       square.addEventListener('touchstart', function handleTouchEvent(e) {
+ //           console.log(e);
+ //           square.style.backgroundColor = "pink";
+
+ //           squaresTouched.forEach((square) => {
+//              square.addEventListener('touchmove', function handleMoveEvent(e) {
+//                    console.log(e);
+ //                   e = square;
+  //                  square.style.backgroundColor = "blue";
+  //              });
+  //          })
+  //      });
+
+
+   // });
+
+//};
+        
 
 
