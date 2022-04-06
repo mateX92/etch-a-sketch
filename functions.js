@@ -51,11 +51,17 @@ function placeSquares() {
         canvas.appendChild(square);
     }
 
+    colorPink(); // TEST
+
+    // DRAWING COLOR SQUARES IF THE PROPER BUTTON IS CLICKED
+
     const colorButton = document.querySelector('#color_squares');
     colorButton.addEventListener('click', function() { // adds a text which version of Colors you chose
         drawColorSquares();
         textColor.textContent = "Draw in Color!";
     })
+
+    // DRAWING GRAY SQUARES IF THE PROPER BUTTON IS CLICKED
 
     const grayButton = document.querySelector('#gray_squares');
     grayButton.addEventListener('click', function() {
@@ -220,5 +226,34 @@ function restartGame() {
 };
 
 restartGame();
+
+// to test if touch would work
+
+function colorPink() {
+
+    const squaresTouched = document.querySelectorAll('.each_square'); 
+
+    squaresTouched.forEach((square) => {
+        square.addEventListener('touchstart', function handleTouchStart() {
+            square.style.backgroundColor = 'pink';
+            console.log("pink");
+
+            squaresTouched.forEach((square) => {
+                square.addEventListener('touchmove', function handleTouchMove() {
+                    console.log("pink, move!");
+                    square.style.backgroundColor = 'red';
+            
+                    document.addEventListener('touchend', () => {
+                        square.removeEventListener('touchmove', handleTouchMove);
+                    })
+                })
+            })
+            
+        })
+    })
+
+}
+
+
 
 
